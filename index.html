@@ -827,6 +827,14 @@
     .float-wa:hover { transform: scale(1.08); box-shadow: 0 6px 28px rgba(37,211,102,0.55); }
     .float-wa svg { width: 28px; height: 28px; }
 
+    /* ─── CONTATO GRID ─── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
     /* ─── RESPONSIVE ─── */
     @media (max-width: 900px) {
       .nav-links, .nav-cta { display: none; }
@@ -841,10 +849,23 @@
       .section { padding: 64px 0; }
       .final-cta { padding: 64px 0; }
       .footer-grid { grid-template-columns: 1fr; }
-      .cred-inner { gap: 24px; }
       .steps { grid-template-columns: 1fr; }
       .areas-grid { grid-template-columns: 1fr; }
       .final-cta-note { display: none; }
+
+      /* Cred bar: 3 itens em linha única com fonte menor */
+      .cred-inner { gap: 12px; flex-wrap: nowrap; align-items: flex-start; }
+      .cred-item { flex: 1; align-items: center; }
+      .cred-num { font-size: 1rem; }
+      .cred-label { font-size: 0.65rem; }
+
+      /* Mapa vai abaixo das infos de contato */
+      .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+
+      /* Badge da foto: manter dentro do frame */
+      .about-badge-wrap { bottom: 12px; padding: 10px 14px; gap: 8px; }
+      .about-badge-logo { height: 28px; }
+      .about-photo-wrap { padding-bottom: 0; }
     }
   </style>
 </head>
@@ -1307,7 +1328,7 @@
 ══════════════════════════════════════════ -->
 <section class="section section-light" id="contato">
   <div class="container">
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start;">
+    <div class="contact-grid">
 
       <div>
         <span class="section-label">Contato</span>
