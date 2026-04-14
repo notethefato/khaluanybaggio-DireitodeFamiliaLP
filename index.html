@@ -853,11 +853,11 @@
       .areas-grid { grid-template-columns: 1fr; }
       .final-cta-note { display: none; }
 
-      /* Cred bar: 3 itens em linha única com fonte menor */
-      .cred-inner { gap: 12px; flex-wrap: nowrap; align-items: flex-start; }
-      .cred-item { flex: 1; align-items: center; }
-      .cred-num { font-size: 1rem; }
-      .cred-label { font-size: 0.65rem; }
+      /* Cred bar: 3 itens em linha única centralizada */
+      .cred-inner { justify-content: space-evenly; flex-wrap: nowrap; gap: 0; align-items: flex-start; }
+      .cred-item { flex: 0 1 auto; align-items: center; padding: 0 4px; }
+      .cred-num { font-size: 0.95rem; }
+      .cred-label { font-size: 0.6rem; }
 
       /* Mapa vai abaixo das infos de contato */
       .contact-grid { grid-template-columns: 1fr; gap: 32px; }
