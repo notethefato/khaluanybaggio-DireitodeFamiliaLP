@@ -11,12 +11,13 @@
   <style>
     /* ─── RESET & BASE ─── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; font-size: 16px; }
+    html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; }
     body {
       font-family: 'Roboto', sans-serif;
       color: #122738;
       background: #fff;
       line-height: 1.6;
+      overflow-x: hidden;
     }
     img { max-width: 100%; display: block; }
     a { text-decoration: none; color: inherit; }
@@ -207,7 +208,7 @@
     .nav-mobile {
       position: fixed;
       top: 0; right: 0;
-      width: 280px;
+      width: min(280px, 85vw);
       height: 100dvh;
       background: #fff;
       z-index: 1002;
@@ -373,15 +374,15 @@
       position: absolute;
       top: -8px;
       right: -8px;
-      width: 100%;
-      height: 100%;
+      width: calc(100% + 8px);
+      height: calc(100% + 8px);
       border: 2px solid rgba(210,165,80,0.35);
       border-radius: 16px;
       pointer-events: none;
     }
     @media (max-width: 960px) {
       .hero-inner { grid-template-columns: 1fr; gap: 40px; }
-      .hero-photo-col { max-width: 380px; margin: 0 auto; }
+      .hero-photo-col { max-width: min(380px, 100%); margin: 0 auto; overflow: hidden; }
       .hero-photo-frame img { height: 420px; }
     }
     .hero-badge {
@@ -912,6 +913,9 @@
     }
     @media (max-width: 600px) {
       .hero { padding: 100px 0 60px; }
+      .hero h1 { font-size: clamp(1.5rem, 7vw, 1.9rem); }
+      .hero-sub { font-size: 0.9rem; }
+      .hero-badge { font-size: 0.65rem; letter-spacing: 0.08em; max-width: 100%; }
       .section { padding: 64px 0; }
       .final-cta { padding: 64px 0; }
       .footer-grid { grid-template-columns: 1fr; }
@@ -922,17 +926,20 @@
       /* Cred bar: 3 itens em linha única centralizada */
       .cred-inner { justify-content: space-evenly; flex-wrap: nowrap; gap: 0; align-items: flex-start; }
       .cred-item { flex: 0 1 auto; align-items: center; padding: 0 4px; }
-      .cred-num { font-size: 0.95rem; }
-      .cred-label { font-size: 0.6rem; }
+      .cred-num { font-size: 0.85rem; }
+      .cred-label { font-size: 0.58rem; }
 
       /* Mapa vai abaixo das infos de contato */
       .contact-grid { grid-template-columns: 1fr; gap: 32px; }
 
       /* Badge da foto no mobile */
-      .about-badge-wrap { padding: 8px 12px; gap: 8px; }
+      .about-badge-wrap { padding: 8px 12px; gap: 8px; left: 12px; right: 12px; max-width: calc(100% - 24px); }
       .about-badge-logo { height: 22px; }
       .about-badge-text { font-size: 0.65rem; }
       .about-badge-text strong { font-size: 0.72rem; }
+
+      /* Foto hero menor no mobile */
+      .hero-photo-frame img { height: 320px; }
     }
   </style>
 </head>
